@@ -3,7 +3,7 @@
 
   <groupId>fr.calitech.release.testing</groupId>
   <artifactId>simpler</artifactId>
-  <version>1.13</version>
+  <version>1.14-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>simpler</name>
@@ -16,7 +16,7 @@
     <connection>scm:git:git@github.com:lauvigne/simpleRelease.git</connection>
     <url>scm:git:git@github.com:lauvigne/simpleRelease.git</url>
     <developerConnection>scm:git:git@github.com:lauvigne/simpleRelease.git</developerConnection>
-    <tag>simpler-1.13</tag>
+    <tag>simpler-1.8</tag>
   </scm>
 
   <distributionManagement>
@@ -45,8 +45,8 @@
           <releaseProfiles>release</releaseProfiles>
           <mavenExecutorId>forked-path</mavenExecutorId>
           <useReleaseProfile>false</useReleaseProfile>
-          <arguments>-Pp1,readmeVersion -Dhttp-releaseVersion=${project.rel.fr.calitech.release.testing:simpler}</arguments>
-          <completionGoals>replacer:replace scm:checkin</completionGoals>
+          <arguments>-Pp1,readmeVersion</arguments>
+          <completionGoals>properties:read-project-properties replacer:replace scm:checkin</completionGoals>
         </configuration>
       </plugin>
     </plugins>
@@ -66,7 +66,7 @@
               <token>(?m)&lt;artifactId&gt;http&lt;/artifactId&gt;\s*&lt;version&gt;(\d|.)*&lt;/version&gt;</token>
               <value>
                 &lt;artifactId&gt;http&lt;/artifactId&gt;
-                &lt;version&gt;${http-releaseVersion}&lt;/version&gt;</value>
+                &lt;version&gt;${project.rel.fr.calitech.release.testing:simpler}&lt;/version&gt;</value>
             </configuration>
           </plugin>
           <plugin>
@@ -77,6 +77,23 @@
               <includes>README.md</includes>
               <message>update version in the README.md</message>
             </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>properties-maven-plugin</artifactId>
+            <version>1.0-alpha-2</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>read-project-properties</goal>
+                </goals>
+                <configuration>
+                  <files>
+                    <file>release.properties</file>
+                  </files>
+                </configuration>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
