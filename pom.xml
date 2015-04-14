@@ -66,7 +66,7 @@
               <token>(?m)&lt;artifactId&gt;http&lt;/artifactId&gt;\s*&lt;version&gt;(\d|.)*&lt;/version&gt;</token>
               <value>
                 &lt;artifactId&gt;http&lt;/artifactId&gt;
-                &lt;version&gt;${project.version}&lt;/version&gt;</value>
+                &lt;version&gt;${releaseVersion}&lt;/version&gt;</value>
             </configuration>
           </plugin>
           <plugin>
