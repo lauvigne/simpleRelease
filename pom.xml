@@ -3,7 +3,7 @@
 
   <groupId>fr.calitech.release.testing</groupId>
   <artifactId>simpler</artifactId>
-  <version>1.6</version>
+  <version>1.7-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>simpler</name>
@@ -16,7 +16,7 @@
     <connection>scm:git:git@github.com:lauvigne/simpleRelease.git</connection>
     <url>scm:git:git@github.com:lauvigne/simpleRelease.git</url>
     <developerConnection>scm:git:git@github.com:lauvigne/simpleRelease.git</developerConnection>
-    <tag>simpler-1.6</tag>
+    <tag>simpler-1.3</tag>
   </scm>
 
   <distributionManagement>
@@ -66,7 +66,7 @@
               <token>(?m)&lt;artifactId&gt;http&lt;/artifactId&gt;\s*&lt;version&gt;(\d|.)*&lt;/version&gt;</token>
               <value>
                 &lt;artifactId&gt;http&lt;/artifactId&gt;
-                &lt;version&gt;${releaseVersion}&lt;/version&gt;</value>
+                &lt;version&gt;${project.rel.fr.calitech.release.testing\:simpler}&lt;/version&gt;</value>
             </configuration>
           </plugin>
           <plugin>
