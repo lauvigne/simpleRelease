@@ -14,6 +14,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <scm>
+    <connection>scm:git:git@github.com:lauvigne/simpleRelease.git</connection>
+    <url>scm:git:git@github.com:lauvigne/simpleRelease.git</url>
+    <developerConnection>scm:git:git@github.com:lauvigne/simpleRelease.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>local.repo</id>
+      <name>Local Repository</name>
+      <url>file:/Users/lauvigne/data/checkouts/codestory/releaseProject/deployRepo</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
