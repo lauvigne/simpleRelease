@@ -45,8 +45,41 @@
           <releaseProfiles>release</releaseProfiles>
           <mavenExecutorId>forked-path</mavenExecutorId>
           <useReleaseProfile>false</useReleaseProfile>
+          <arguments>-PreadmeVersion</arguments>
+          <completionGoals>replacer:replace scm:checkin</completionGoals>
         </configuration>
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>readmeVersion</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.google.code.maven-replacer-plugin</groupId>
+            <artifactId>replacer</artifactId>
+            <version>1.5.3</version>
+            <configuration>
+              <file>README.md</file>
+              <token>(?m)&lt;artifactId&gt;http&lt;/artifactId&gt;\s*&lt;version&gt;(\d|.)*&lt;/version&gt;</token>
+              <value>
+                &lt;artifactId&gt;http&lt;/artifactId&gt;
+                &lt;version&gt;${project.version}&lt;/version&gt;</value>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-scm-plugin</artifactId>
+            <version>1.9.4</version>
+            <configuration>
+              <includes>README.md</includes>
+              <message>update version in the README.md</message>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
