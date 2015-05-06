@@ -46,7 +46,7 @@
           <mavenExecutorId>forked-path</mavenExecutorId>
           <useReleaseProfile>false</useReleaseProfile>
           <arguments>-Pp1,readmeVersion</arguments>
-          <completionGoals>properties:read-project-properties replacer:replace scm:checkin</completionGoals>
+          <completionGoals>version-updater:readme-update properties:read-project-properties replacer:replace scm:checkin</completionGoals>
         </configuration>
       </plugin>
     </plugins>
