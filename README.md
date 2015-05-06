@@ -12,6 +12,6 @@ A single dependency is what it takes. Release versions are deployed on Maven Cen
 <dependency>
   <groupId>net.code-story</groupId>
   <artifactId>http</artifactId>
-  <version>1.18</version>
+  <version>1.19</version>
 </dependency>
 ```
